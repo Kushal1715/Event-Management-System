@@ -49,7 +49,7 @@ export default function Header() {
   };
 
   return (
-    <Navbar className="border-b-2">
+    <Navbar className="border-b-2 xl:px-20">
       <Link
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
@@ -111,15 +111,26 @@ export default function Header() {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link active={path === "/"} as={"div"}>
-          <Link to="/">Home</Link>
-        </Navbar.Link>
-        <Navbar.Link active={path === "/about"} as={"div"}>
-          <Link to="/about">About</Link>
-        </Navbar.Link>
-        <Navbar.Link active={path === "/projects"} as={"div"}>
-          <Link to="/projects">Projects</Link>
-        </Navbar.Link>
+        <Link to="/">
+          <Navbar.Link active={path === "/"} as={"div"}>
+            Home
+          </Navbar.Link>
+        </Link>
+        <Link to="/about">
+          <Navbar.Link active={path === "/about"} as={"div"}>
+            About
+          </Navbar.Link>
+        </Link>
+        <Link to="/events">
+          <Navbar.Link active={path === "/events"} as={"div"}>
+            Events
+          </Navbar.Link>
+        </Link>
+        <Link to="/contact">
+          <Navbar.Link active={path === "/contact"} as={"div"}>
+            Contact Us
+          </Navbar.Link>
+        </Link>
       </Navbar.Collapse>
     </Navbar>
   );
