@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 // import { signoutSuccess } from "../redux/user/userSlice";
 import { useEffect, useState } from "react";
 import { toggleTheme } from "../redux/theme/themeSlice";
+import { signoutSuccess } from "../redux/user/userSlice";
 
 export default function Header() {
   const path = useLocation().pathname;
@@ -26,19 +27,19 @@ export default function Header() {
   // }, [location.search]);
 
   const handleSignout = async () => {
-    // try {
-    //   const res = await fetch('/api/user/signout', {
-    //     method: 'POST',
-    //   });
-    //   const data = await res.json();
-    //   if (!res.ok) {
-    //     console.log(data.message);
-    //   } else {
-    //     dispatch(signoutSuccess());
-    //   }
-    // } catch (error) {
-    //   console.log(error.message);
-    // }
+    try {
+      const res = await fetch("/api/user/signout", {
+        method: "POST",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      } else {
+        dispatch(signoutSuccess());
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const handleSubmit = (e) => {
