@@ -12,7 +12,6 @@ export default function SignUp() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
-  console.log(formData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,13 +46,13 @@ export default function SignUp() {
         <div className="flex-1">
           <Link to="/" className="font-bold dark:text-white text-4xl">
             <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
-              Sahand's
+              Nex Venue
             </span>
-            Blog
           </Link>
           <p className="text-sm mt-5">
-            This is a demo project. You can sign up with your email and password
-            or with Google.
+            Create your account to discover and attend exciting events. Stay
+            connected with the latest happenings, and secure your spot
+            effortlessly. Let's make every event unforgettable!
           </p>
         </div>
         {/* right */}

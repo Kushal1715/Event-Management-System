@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
 import Events from "./pages/Events";
 import Header from "./components/Header";
+import FooterCom from "./components/FooterCom";
 const App = () => {
   return (
     <BrowserRouter>
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/events" element={<Events />} />
       </Routes>
+      <FooterCom />
     </BrowserRouter>
   );
 };
