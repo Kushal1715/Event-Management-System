@@ -9,7 +9,6 @@ import {
 } from "react-icons/hi";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-// import { signoutSuccess } from '../redux/user/userSlice';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { signoutSuccess } from "../redux/user/userSlice";
@@ -60,8 +59,7 @@ export default function DashSidebar() {
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
-              // label={currentUser.isAdmin ? "Admin" : "User"}
-              label="user"
+              label={currentUser.isAdmin ? "Admin" : "User"}
               labelColor="dark"
               as="div"
             >
@@ -69,13 +67,13 @@ export default function DashSidebar() {
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
-            <Link to="/dashboard?tab=posts">
+            <Link to="/dashboard?tab=events">
               <Sidebar.Item
-                active={tab === "posts"}
+                active={tab === "events"}
                 icon={HiDocumentText}
                 as="div"
               >
-                Posts
+                Events
               </Sidebar.Item>
             </Link>
           )}
@@ -90,7 +88,7 @@ export default function DashSidebar() {
                   Users
                 </Sidebar.Item>
               </Link>
-              <Link to="/dashboard?tab=comments">
+              {/* <Link to="/dashboard?tab=comments">
                 <Sidebar.Item
                   active={tab === "comments"}
                   icon={HiAnnotation}
@@ -98,7 +96,7 @@ export default function DashSidebar() {
                 >
                   Comments
                 </Sidebar.Item>
-              </Link>
+              </Link> */}
             </>
           )}
           <Sidebar.Item

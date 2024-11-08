@@ -11,6 +11,8 @@ import Header from "./components/Header";
 import FooterCom from "./components/FooterCom";
 import PrivateRoute from "./components/PrivateRoute";
 import Payment from "./pages/Payment";
+import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
+import CreateEvent from "./pages/CreateEvent";
 const App = () => {
   return (
     <BrowserRouter>
@@ -24,6 +26,9 @@ const App = () => {
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/payment" element={<Payment />} />
+        </Route>
+        <Route element={<OnlyAdminPrivateRoute />}>
+          <Route path="/create-event" element={<CreateEvent />} />
         </Route>
         <Route path="/events" element={<Events />} />
       </Routes>
