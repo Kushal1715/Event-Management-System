@@ -13,6 +13,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Payment from "./pages/Payment";
 import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
 import CreateEvent from "./pages/CreateEvent";
+import UpdateEvent from "./pages/UpdateEvent";
 const App = () => {
   return (
     <BrowserRouter>
@@ -29,6 +30,7 @@ const App = () => {
         </Route>
         <Route element={<OnlyAdminPrivateRoute />}>
           <Route path="/create-event" element={<CreateEvent />} />
+          <Route path="/update-event/:eventId" element={<UpdateEvent />} />
         </Route>
         <Route path="/events" element={<Events />} />
       </Routes>
