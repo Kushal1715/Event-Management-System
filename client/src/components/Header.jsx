@@ -16,15 +16,15 @@ export default function Header() {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
   const { theme } = useSelector((state) => state.theme);
-  // const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // useEffect(() => {
-  //   const urlParams = new URLSearchParams(location.search);
-  //   const searchTermFromUrl = urlParams.get('searchTerm');
-  //   if (searchTermFromUrl) {
-  //     setSearchTerm(searchTermFromUrl);
-  //   }
-  // }, [location.search]);
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const searchTermFromUrl = urlParams.get("searchTerm");
+    if (searchTermFromUrl) {
+      setSearchTerm(searchTermFromUrl);
+    }
+  }, [location.search]);
 
   const handleSignout = async () => {
     try {
@@ -43,11 +43,11 @@ export default function Header() {
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    // const urlParams = new URLSearchParams(location.search);
-    // urlParams.set('searchTerm', searchTerm);
-    // const searchQuery = urlParams.toString();
-    // navigate(`/search?${searchQuery}`);
+    e.preventDefault();
+    const urlParams = new URLSearchParams(location.search);
+    urlParams.set("searchTerm", searchTerm);
+    const searchQuery = urlParams.toString();
+    navigate(`/search?${searchQuery}`);
   };
 
   return (
@@ -63,11 +63,11 @@ export default function Header() {
       <form onSubmit={handleSubmit}>
         <TextInput
           type="text"
-          placeholder="Search..."
+          placeholder="Search events..."
           rightIcon={AiOutlineSearch}
           className="hidden lg:inline"
-          // value={searchTerm}
-          // onChange={(e) => setSearchTerm(e.target.value)}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
       <Button className="w-12 h-10 lg:hidden" color="gray" pill>

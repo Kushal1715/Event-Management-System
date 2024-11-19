@@ -4,6 +4,7 @@ import {
   Datepicker,
   FileInput,
   Select,
+  Textarea,
   TextInput,
 } from "flowbite-react";
 import ReactQuill from "react-quill";
@@ -164,10 +165,10 @@ export default function CreateEvent() {
             className="w-full h-72 object-cover"
           />
         )}
-        <ReactQuill
+        <Textarea
           theme="snow"
           placeholder="Describe your event..."
-          className="h-72 mb-12"
+          className="h-72 "
           required
           onChange={(value) => {
             setFormData({ ...formData, content: value });

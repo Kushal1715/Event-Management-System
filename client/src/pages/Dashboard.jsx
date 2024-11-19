@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import DashSidebar from "../components/DashSidebar";
 import DashProfile from "../components/DashProfile";
 import DashEvents from "../components/DashEvents";
+import DashUsers from "../components/DashUsers";
 // import DashPosts from "../components/DashPosts";
 // import DashUsers from "../components/DashUsers";
 // import DashboardComp from "../components/DashboardComp";
@@ -28,7 +29,7 @@ export default function Dashboard() {
       {/* events  */}
       {tab === "events" && <DashEvents />}
       {/* users */}
-      {/* {tab === "users" && <DashUsers />} */}
+      {tab === "users" && <DashUsers />}
 
       {/* dashboard comp */}
       {/* {tab === "dash" && <DashboardComp />} */}

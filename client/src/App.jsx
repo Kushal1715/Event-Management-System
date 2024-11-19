@@ -10,10 +10,15 @@ import Events from "./pages/Events";
 import Header from "./components/Header";
 import FooterCom from "./components/FooterCom";
 import PrivateRoute from "./components/PrivateRoute";
-import Payment from "./pages/Payment";
 import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
 import CreateEvent from "./pages/CreateEvent";
 import UpdateEvent from "./pages/UpdateEvent";
+import EventDetails from "./pages/EventDetails";
+import Search from "./pages/Search";
+import RegisterEvent from "./pages/RegisterEvent";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentFailure from "./pages/PaymentFailure";
+import ConfirmationPage from "./pages/ConfirmationPage";
 const App = () => {
   return (
     <BrowserRouter>
@@ -24,15 +29,27 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/search" element={<Search />} />
+
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/payment" element={<Payment />} />
+          <Route
+            path="/register-event/:eventSlug"
+            element={<RegisterEvent />}
+          />
+          <Route
+            path="/confirmation/:registrationId"
+            element={<ConfirmationPage />}
+          />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/payment-failure" element={<PaymentFailure />} />
         </Route>
         <Route element={<OnlyAdminPrivateRoute />}>
           <Route path="/create-event" element={<CreateEvent />} />
           <Route path="/update-event/:eventId" element={<UpdateEvent />} />
         </Route>
         <Route path="/events" element={<Events />} />
+        <Route path="/event-details/:eventSlug" element={<EventDetails />} />
       </Routes>
       <FooterCom />
     </BrowserRouter>

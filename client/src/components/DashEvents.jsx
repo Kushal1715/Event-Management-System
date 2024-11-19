@@ -98,7 +98,7 @@ export default function DashEvents() {
                     {new Date(event.updatedAt).toLocaleDateString()}
                   </Table.Cell>
                   <Table.Cell>
-                    <Link to={`/event/${event.slug}`}>
+                    <Link to={`/event-details/${event.slug}`}>
                       <img
                         src={event.image}
                         alt={event.title}
@@ -109,7 +109,7 @@ export default function DashEvents() {
                   <Table.Cell>
                     <Link
                       className="font-medium text-gray-900 dark:text-white"
-                      to={`/event/${event.slug}`}
+                      to={`/event-details/${event.slug}`}
                     >
                       {event.title}
                     </Link>
