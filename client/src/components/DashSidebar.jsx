@@ -44,8 +44,18 @@ export default function DashSidebar() {
     <Sidebar className="w-full md:w-56">
       <Sidebar.Items>
         <Sidebar.ItemGroup className="flex flex-col gap-1">
-          {currentUser && currentUser.isAdmin && (
-            <Link to="/dashboard?tab=dash">
+          {currentUser && currentUser.isAdmin ? (
+            <Link to="/dashboard?tab=dash-admin">
+              <Sidebar.Item
+                active={tab === "dash" || !tab}
+                icon={HiChartPie}
+                as="div"
+              >
+                Dashboard
+              </Sidebar.Item>
+            </Link>
+          ) : (
+            <Link to="/dashboard?tab=dash-user">
               <Sidebar.Item
                 active={tab === "dash" || !tab}
                 icon={HiChartPie}
@@ -66,6 +76,7 @@ export default function DashSidebar() {
               Profile
             </Sidebar.Item>
           </Link>
+
           {currentUser.isAdmin && (
             <Link to="/dashboard?tab=events">
               <Sidebar.Item
@@ -78,6 +89,31 @@ export default function DashSidebar() {
             </Link>
           )}
           {currentUser.isAdmin && (
+            <Link to="/dashboard?tab=registrations">
+              <Sidebar.Item
+                active={tab === "registrations"}
+                icon={HiUser}
+                labelColor="dark"
+                as="div"
+              >
+                Registrations
+              </Sidebar.Item>
+            </Link>
+          )}
+          {!currentUser.isAdmin && (
+            <Link to="/dashboard?tab=user-registration">
+              <Sidebar.Item
+                active={tab === "profile"}
+                icon={HiUser}
+                labelColor="dark"
+                as="div"
+              >
+                Registrations
+              </Sidebar.Item>
+            </Link>
+          )}
+
+          {currentUser.isAdmin && (
             <>
               <Link to="/dashboard?tab=users">
                 <Sidebar.Item
@@ -88,15 +124,6 @@ export default function DashSidebar() {
                   Users
                 </Sidebar.Item>
               </Link>
-              {/* <Link to="/dashboard?tab=comments">
-                <Sidebar.Item
-                  active={tab === "comments"}
-                  icon={HiAnnotation}
-                  as="div"
-                >
-                  Comments
-                </Sidebar.Item>
-              </Link> */}
             </>
           )}
           <Sidebar.Item

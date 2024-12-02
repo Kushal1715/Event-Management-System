@@ -28,9 +28,11 @@ const Home = () => {
       </div>
       <div className="px-4 xl:px-[180px] pt-14 pb-14">
         <h1 className="text-5xl font-bold pb-8">Recent Events:</h1>
-        {events.map((event) => (
-          <EventCard event={event} key={event.slug} />
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {events.map((event) => (
+            <EventCard event={event} key={event.slug} />
+          ))}
+        </div>
       </div>
 
       <AboutCom />

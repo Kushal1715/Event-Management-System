@@ -4,6 +4,10 @@ import DashSidebar from "../components/DashSidebar";
 import DashProfile from "../components/DashProfile";
 import DashEvents from "../components/DashEvents";
 import DashUsers from "../components/DashUsers";
+import DashboardUser from "../components/DashboardUser";
+import DashboardAdmin from "../components/DashboardAdmin";
+import DashEventRegistrations from "../components/DashEventRegistrations";
+import DashEventUserRegistrations from "../components/DashEventUserRegistrations";
 // import DashPosts from "../components/DashPosts";
 // import DashUsers from "../components/DashUsers";
 // import DashboardComp from "../components/DashboardComp";
@@ -32,7 +36,10 @@ export default function Dashboard() {
       {tab === "users" && <DashUsers />}
 
       {/* dashboard comp */}
-      {/* {tab === "dash" && <DashboardComp />} */}
+      {tab === "dash-admin" && <DashboardAdmin />}
+      {tab === "dash-user" && <DashboardUser />}
+      {tab === "registrations" && <DashEventRegistrations />}
+      {tab === "user-registration" && <DashEventUserRegistrations />}
     </div>
   );
 }

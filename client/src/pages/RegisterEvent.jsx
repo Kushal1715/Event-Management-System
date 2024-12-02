@@ -22,7 +22,9 @@ const RegisterEvent = () => {
     email: Yup.string()
       .email("Invalid email format")
       .required("Email is required"),
-    phone: Yup.string().required("Phone number is required"),
+    phone: Yup.string()
+      .matches(/^98[0-9]{8}$/, "Please enter a valid mobile number")
+      .required("Phone number is required"),
     ticketsBooked: Yup.number()
       .min(1, "At least 1 ticket is required")
       .required("Number of tickets is required"),
@@ -102,7 +104,7 @@ const RegisterEvent = () => {
 
             <div>
               <label htmlFor="phone" className="block mb-1 font-medium">
-                Phone Number
+                Mobile Number
               </label>
               <Field
                 type="text"

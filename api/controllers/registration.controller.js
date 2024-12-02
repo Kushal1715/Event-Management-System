@@ -88,6 +88,24 @@ export const getRegistrationById = async (req, res, next) => {
   }
 };
 
+export const getRegistrationsByUserId = async (req, res, next) => {
+  const { userId } = req.params;
+
+  try {
+    // Find registrations by user ID
+    const registrations = await Registration.find({ userId });
+
+    if (!registrations || registrations.length === 0) {
+      return next(errorHandler(404, 'No registrations found for this user'));
+    }
+
+    // Respond with the list of registrations
+    res.status(200).json(registrations);
+  } catch (error) {
+    next(error);
+  }
+};
+
 // Update registration status
 export const updateRegistration = async (req, res, next) => {
   const { registrationId } = req.params;
